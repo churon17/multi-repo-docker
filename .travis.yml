@@ -1,5 +1,5 @@
-sudo : required
 language : generic
+sudo : required
 services:
     - docker
 
@@ -10,14 +10,14 @@ script:
     - docker run -e CI=true churon17/react-test npm test -- --coverage
 
 after_success:
-    - docker build -t churon17/multi-client ./client 
-    - docker build -t churon17/nulti-nginx ./nginx
-    - docker build -t churon17/multi-server ./server
-    - docker build -t churon17/multi-worker ./worker
+    - docker build -t jcalarcon/multi-client ./client 
+    - docker build -t jcalarcon/nulti-nginx ./nginx
+    - docker build -t jcalarcon/multi-server ./server
+    - docker build -t jcalarcon/multi-worker ./worker
     #Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     #Take those images and push then to docker hub
-    - docker push churon17/multi-client
-    - docker push churon17/multi-nginx
-    - docker push churon17/multi-server
-    - docker push churon17/multi-worker
+    - docker push jcalarcon/multi-client
+    - docker push jcalarcon/multi-nginx
+    - docker push jcalarcon/multi-server
+    - docker push jcalarcon/multi-worker
