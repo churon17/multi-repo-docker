@@ -12,7 +12,7 @@ services:
             - client
         restart: always
         build: 
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.dev
             context: ./nginx
         ports:
             - '4000:80'
@@ -20,7 +20,7 @@ services:
         depends_on: 
             - postgres
         build: 
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.dev
             context: ./server
         volumes:
             - /app/node_modules
@@ -45,7 +45,7 @@ services:
         depends_on: 
             - postgres
         build: 
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.dev
             context: ./worker
         volumes:
             - app/node_modules

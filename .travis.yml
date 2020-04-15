@@ -4,10 +4,10 @@ services:
     - docker
 
 before_install:
-    - docker build -t churon17/react-test -f ./client/Dockerfile.dev ./client
+    - docker build -t jcalarcon/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run -e CI=true churon17/react-test npm test -- --coverage
+    - docker run -e CI=true jcalarcon/react-test npm test -- --coverage
 
 after_success:
     - docker build -t jcalarcon/multi-client ./client 
