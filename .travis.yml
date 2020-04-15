@@ -11,7 +11,7 @@ script:
 
 after_success:
     - docker build -t jcalarcon/multi-client ./client 
-    - docker build -t jcalarcon/nulti-nginx ./nginx
+    - docker build -t jcalarcon/multi-nginx ./nginx
     - docker build -t jcalarcon/multi-server ./server
     - docker build -t jcalarcon/multi-worker ./worker
     #Log in to the docker CLI
